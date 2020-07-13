@@ -1,0 +1,16 @@
+<section class="ae-container-fluid ae-container-fluid--inner rk-portfolio">
+  <app-loading *ngIf="prodService.loading"></app-loading>
+  <div class="ae-masonry ae-masonry-md-2 ae-masonry-xl-3">
+    <a *ngFor="let item of prodService.products"
+       [routerLink]="['/item', item.cod]"
+       class="animated fadeIn rk-item ae-masonry__item">
+      <img [src]=item.url alt="">
+      <div class="item-meta">
+        <h2>{{item.title}}</h2>
+        <mat-chip-list aria-label="Fish selection" align="center">
+          <mat-chip *ngFor="let cat of item.category">{{cat}}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </a>
+  </div>
+</section>
